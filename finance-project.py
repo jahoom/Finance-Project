@@ -66,4 +66,18 @@ for ticker in returns:
 	print("\n", ticker, "\t", returns[ticker][returns.index.year==2015].std())
 
 #sns.pairplot(returns)
-#plt.show()
+#g = sns.distplot(returns['MS Return'].dropna(axis=0, how='any'), kde=True, color='green', bins=1000)
+#g = sns.distplot(returns['C Return'].dropna(axis=0, how='any'), kde=True, color='red', bins=1000)
+#g.set_xlim([-0.4,0.8])
+print(bank_stocks.reset_index())
+sns.set_style('whitegrid')
+#for ticker in tickers:
+	#sns.lineplot(x="Date", y='Close', data = bank_stocks[ticker].reset_index(), legend='full')
+
+#Do poprawienia
+#BAC_aver = pd.DataFrame()
+#BAC_aver['Date'] = (bank_stocks[(bank_stocks.index).year==2018]).index
+
+print(BAC_aver.head(10))
+
+plt.show()
