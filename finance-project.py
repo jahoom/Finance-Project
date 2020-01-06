@@ -19,3 +19,9 @@ print("\nGoldman Sachs \n", GS_df.head())
 print("\nJP Morgan \n", JPM_df.head())
 print("\nMorgan Stanley \n", MS_df.head())
 print("\nWells Fargo \n", WFC_df.head())
+
+tickers = ['BAC', 'C', 'GS', 'JPM', 'MS', 'WFC']
+
+bank_stocks = pd.concat([BAC_df, C_df, GS_df, JPM_df, MS_df, WFC_df], axis=1, keys = tickers)
+bank_stocks.columns.names = ['Bank Ticker','Stock Info']
+print(bank_stocks.head())
