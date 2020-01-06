@@ -55,5 +55,15 @@ print("\nNajgorszy spadek:\n")
 for ticker in returns:
 	print("\t", ticker, "\t", (returns[returns[ticker]==returns[ticker].min()].index).date, "\t", returns[ticker].min())
 
+print("\nOdchylenia standardowe w kursach: ")
+
+for ticker in returns:
+	print("\n", ticker, "\t", returns[ticker].std())
+
+print("\nA w roku 2015: ")
+
+for ticker in returns:
+	print("\n", ticker, "\t", returns[ticker][returns.index.year==2015].std())
+
 #sns.pairplot(returns)
 #plt.show()
