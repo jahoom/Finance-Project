@@ -2,6 +2,9 @@ from pandas_datareader import data, wb
 import pandas as pd
 import numpy as np
 import datetime
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 
 """
 Pobieranie danych z internetu. Niestety nie pobiera w wymaganym zakresie...
@@ -43,3 +46,14 @@ for ticker in tickers:
 	returns[ticker+" Return"] = bank_stocks[ticker]['Close'].pct_change()
 	
 print(returns.head())
+
+print("\nNajlepszy wzrost:\n")
+for ticker in returns:
+	print("\t", ticker, "\t", (returns[returns[ticker]==returns[ticker].max()].index).date, "\t", returns[ticker].max())
+
+print("\nNajgorszy spadek:\n")
+for ticker in returns:
+	print("\t", ticker, "\t", (returns[returns[ticker]==returns[ticker].min()].index).date, "\t", returns[ticker].min())
+
+#sns.pairplot(returns)
+#plt.show()
